@@ -1,3 +1,5 @@
+"""Graph info adapter"""
+
 from pathlib import Path
 import json
 
