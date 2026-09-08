@@ -1,0 +1,4 @@
+[ZoneTransfer]
+ZoneId=3
+ReferrerUrl=https://claude.ai/chat/5a92ea90-74bb-4f4b-b312-9473aa43418e
+HostUrl=https://claude.ai/api/organizations/c2ba4b43-8cab-4886-97e0-4587d07e6997/conversations/5a92ea90-74bb-4f4b-b312-9473aa43418e/wiggle/download-file?path=%2Fmnt%2Fuser-data%2Foutputs%2Flean-spec-stages-1-2.md
