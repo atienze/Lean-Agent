@@ -6,7 +6,6 @@ from . import paths
 AutonomyMode = Literal["confirm", "auto"]
 
 class LeanConfig(BaseModel):
-    schema_version: int = 1
     provider: str = "ollama"
     model: str = "qwen-3.5:27b"
     autonomy: AutonomyMode = "confirm"
@@ -30,14 +29,14 @@ def merge_overrides(base: LeanConfig, overrides: dict) -> LeanConfig:
     # return merged lean config
     return LeanConfig(**merged)
 
-def init_project(root: None, overrides: None) -> LeanConfig:
+def init_project(root: Path | None = None, overrides: dict | None = None) -> LeanConfig:
     # MAY NEED TO GUARD MY SUMMARY.MD and LAST_TURN.MD LATER FROM BEING RE WRITTEN
     config = merge_overrides(default_config(), overrides or {})
     save_config(config, root)
 
     return config
 
-def save_config(config: LeanConfig, root=None) -> None:
+def save_config(config: LeanConfig, root: Path | None = None) -> None:
     # get the config path from root
     path = paths.config_path(root)
 
@@ -46,21 +45,3 @@ def save_config(config: LeanConfig, root=None) -> None:
 
     # serialize pydantic model to json (indent 2 for pretty-printed)
     path.write_text(config.model_dump_json(indent=2), encoding="utf-8")
-
-
-
-
-
-
-
-    
-
-
-
-
-
-
-
-
-
-

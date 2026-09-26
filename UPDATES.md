@@ -21,5 +21,14 @@ LEFT OFF:
         - writes to .lean/config.json w/ save_config()
 LEFT OFF:
 - config schema and cli init function should be finished. will need to do small testing segment then continue to next portion of project.
-    
+
+9/25
+- altered cli.py init method to be simpler and call the init_project function from config. 
+    - the init_project function will call all other methods inside config.py. Good to know for testing
+- fixed args in config.py init_project function. 
+
+LEFT OFF: 
+- Understanding where and what to test. From my understanding now. I just need to use a test to run init from cli.py and see if all functions are used correctly
+    - should be init(cli.py) -> init_project(config.py) -> merge_overrides(config.py) -> save_config(config.py)
+    - After this function calling sequence completes I should have a .lean dir inside wherever I called from and it should have a default config.py or an altered config.py depending on if I had changed anything 
 

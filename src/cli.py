@@ -1,6 +1,7 @@
 import typer
 from lean import __version__
-from . import config
+from .config import AutonomyMode, init_project, default_config
+
 
 app = typer.Typer(name = "lean", 
                   help="Lean CLI", 
@@ -11,6 +12,10 @@ def status() -> None:
     "Display status of lean agent (version and config state for now)"
     typer.echo(f"lean version: {__version__}")
 
+"""
+calls init_project from config.py which merges the config files 
+and writes to file from path config_path.
+"""
 app.command()
 def init(
         provider: str | None = typer.Option(None),
@@ -18,18 +23,13 @@ def init(
         autonomy: AutonomyMode | None = typer.Option(None),
 ) -> None:
     # build config with overrides
-    cfg = config.default_config()
+    overrides = {
+        "provider": provider,
+        "model": model,
+        "autonomy": autonomy,
+    }
 
-    if provider is not None:
-        cfg.provider = provider
-
-    if model is not None:
-        cfg.model = model
-
-    if autonomy is not None:
-        cfg.autonomy = autonomy
-
-    config.save_config(cfg)
+    init_project(overrides=overrides)
 
     print("lean init complete")
 
