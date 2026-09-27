@@ -32,3 +32,4 @@ LEFT OFF:
     - should be init(cli.py) -> init_project(config.py) -> merge_overrides(config.py) -> save_config(config.py)
     - After this function calling sequence completes I should have a .lean dir inside wherever I called from and it should have a default config.py or an altered config.py depending on if I had changed anything 
 
+9/26

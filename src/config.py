@@ -1,4 +1,5 @@
 from typing import Literal
+from pathlib import Path
 from pydantic import BaseModel
 from . import paths
 
@@ -41,7 +42,7 @@ def save_config(config: LeanConfig, root: Path | None = None) -> None:
     path = paths.config_path(root)
 
     # ensures creation of parent dir
-    path.parent.mkdir(parents=True, exists_ok=True)
+    path.parent.mkdir(parents=True, exist_ok=True)
 
     # serialize pydantic model to json (indent 2 for pretty-printed)
     path.write_text(config.model_dump_json(indent=2), encoding="utf-8")
