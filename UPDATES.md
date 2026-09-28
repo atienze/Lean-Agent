@@ -33,3 +33,41 @@ LEFT OFF:
     - After this function calling sequence completes I should have a .lean dir inside wherever I called from and it should have a default config.py or an altered config.py depending on if I had changed anything 
 
 9/26
+- Completed 3 tests
+    - 2 tests in test_cli.py
+        - one testing all overrides in a "init --provider openai..." etc
+        - one testing one override. "init --model llama3"
+    - 1 test in test_init.py 
+        - verifies init_project generates a valid .lean dir and valid config.json file
+- added error handling to the main init in cli.py
+    - since its top layer itll handle errors anywhere in the init process but it may be troublesome to find them
+LEFT OFF:
+- I created a doc with all spec up until real LLM involvement. Currentely in claude last chat still. Need to read and refine then start implementation. 
+
+
+9/28
+READABILITY OVER COMPACTNESS
+SIMPLISITY OVER COMPLEXITY (most applications)
+- Completed query.py
+    - logic hub for turning graphify data into useful data for LLM and me
+    - BFS_query and Top_nodes query now exist
+        - uses adj created in loader and finds neighbor nodes that can be of use to the LLM
+    - adapters in query.py such as the format function, create readable data from the adj table and the nodes currently available
+- changed Node var into a TypedDict structure in loader.py to achieve method use for dictionaries in the Node structure. 
+- added a imitation graph for testing to tests/fixtures/graph.json
+- added graph_path to paths.py
+
+LEFT OFF:
+- Testing the use of the graph data functions
+- current expectation
+    graphify runs automatically
+    ↓
+    raw graph data, usually graph.json
+    ↓
+    loader.py translates it into nodes and adjacency maps
+    ↓
+    query.py finds matching nodes and neighbors
+    ↓
+    formatted context is returned to the LLM
+- need to implement the 13 tests and run them to ensure completion of stage 3
+

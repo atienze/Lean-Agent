@@ -1,0 +1,25 @@
+{
+  "nodes": [
+    {"id": "auth/session.py", "label": "session.py", "file_type": "code", "source_location": "auth/session.py:1"},
+    {"id": "auth/session.py:create_session", "label": "create_session()", "file_type": "code", "source_location": "auth/session.py:12"},
+    {"id": "auth/session.py:invalidate", "label": "invalidate()", "file_type": "code", "source_location": "auth/session.py:30"},
+    {"id": "auth/token.py", "label": "token.py", "file_type": "code", "source_location": "auth/token.py:1"},
+    {"id": "auth/token.py:mint_token", "label": "mint_token()", "file_type": "code", "source_location": "auth/token.py:8"},
+    {"id": "api/routes.py", "label": "routes.py", "file_type": "code", "source_location": "api/routes.py:1"},
+    {"id": "api/routes.py:login", "label": "login()", "file_type": "code", "source_location": "api/routes.py:14"},
+    {"id": "api/routes.py:logout", "label": "logout()", "file_type": "code", "source_location": "api/routes.py:27"},
+    {"id": "db/models.py", "label": "models.py", "file_type": "code", "source_location": "db/models.py:1"},
+    {"id": "db/models.py:User", "label": "User", "file_type": "code", "source_location": "db/models.py:5"}
+  ],
+  "edges": [
+    {"source": "auth/session.py", "target": "auth/session.py:create_session"},
+    {"source": "auth/session.py", "target": "auth/session.py:invalidate"},
+    {"source": "auth/session.py:create_session", "target": "auth/token.py:mint_token"},
+    {"source": "auth/token.py", "target": "auth/token.py:mint_token"},
+    {"source": "api/routes.py", "target": "api/routes.py:login"},
+    {"source": "api/routes.py", "target": "api/routes.py:logout"},
+    {"source": "api/routes.py:login", "target": "auth/session.py:create_session"},
+    {"source": "api/routes.py:logout", "target": "auth/session.py:invalidate"},
+    {"source": "db/models.py", "target": "db/models.py:User"}
+  ]
+}

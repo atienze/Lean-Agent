@@ -10,6 +10,7 @@ class LeanConfig(BaseModel):
     provider: str = "ollama"
     model: str = "qwen-3.5:27b"
     autonomy: AutonomyMode = "confirm"
+    file_read_lines: int = 50
 
 def default_config() -> LeanConfig:
     # return a fresh model 

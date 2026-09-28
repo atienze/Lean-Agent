@@ -1,15 +1,15 @@
 """Graph info adapter"""
 
 from pathlib import Path
+from typing import TypedDict
 import json
 
 # Node defined by graphify schema
-Node = {
-    "id": str,      
-    "type": str,        
-    "name": str | None,
-    "source_location": str | None,
-}
+class Node(TypedDict):
+    id: str
+    type: str  
+    name: str | None
+    source_location: str | None
 
 # adjacency map to node id's to neighbor id's 
 AdjacencyMap = dict[str, set[str]]

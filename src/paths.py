@@ -14,6 +14,10 @@ def lean_dir(root: Path | None = None) -> Path:
 def config_path(root: Path | None = None) -> Path:
     return lean_dir(root) / "config.json"
 
+# graph json path
+def graph_path(root: Path | None = None) -> Path:
+    return lean_dir(root) / "graph.json"
+
 # check if "lean init" has been ran
 def is_initialized(root: Path | None = None) -> bool:
     return config_path(root).is_file()
