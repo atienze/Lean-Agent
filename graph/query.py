@@ -103,6 +103,6 @@ def format_nodes(nodes: list[Node], adj: AdjacencyMap) -> str:
             tail = ", ".join(shown) + (f" (+{hidden} more)" if hidden else "")
         else:
             tail = "(none)"
-        lines.append(f"{_describe(node)} - neighbors: {tail}")
+        lines.append(f"{_describe(node)} — neighbors: {tail}")
     # return each nodes description (neighbors & hidden neighbors)
     return "\n".join(lines)

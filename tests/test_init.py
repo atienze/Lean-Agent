@@ -12,6 +12,7 @@ def test_init_project_creates_default_config(tmp_path):
     assert config.provider == "ollama"
     assert config.model == "qwen-3.5:27b"
     assert config.autonomy == "confirm"
+    assert config.file_read_lines == 50
 
     config_file = config_path(tmp_path)
 
@@ -23,5 +24,6 @@ def test_init_project_creates_default_config(tmp_path):
     assert saved == {
         "provider": "ollama",
         "model": "qwen-3.5:27b",
-        "autonomy": "confirm"
+        "autonomy": "confirm",
+        "file_read_lines": 50,
     }

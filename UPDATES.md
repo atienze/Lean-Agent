@@ -71,3 +71,11 @@ LEFT OFF:
     formatted context is returned to the LLM
 - need to implement the 13 tests and run them to ensure completion of stage 3
 
+9/29
+- Completed the stage 3 test suite w/ all them passing
+    - not exactly sure what each and every test does but i should review before starting the next session
+LEFT OFF:
+- Check the test suite for stage 3 for understanding
+- start stage 4 and compelte the stage 4 test suite. 
+
+
